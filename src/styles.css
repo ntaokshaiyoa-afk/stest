@@ -52,37 +52,59 @@ body{
   margin:8px 0;
 }
 
-.choices{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:12px;
+.quiz-card {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.choice{
-  padding:12px;
-  border-radius:6px;
-  border:1px solid #e2e6ea;
-  background:white;
-  text-align:left;
-  cursor:pointer;
+/* 問題文を大きく */
+.question-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
-.choice.correct{
-  background:#e8fbee;
-  border-color:var(--success);
-  color:var(--success);
+/* 2×2 グリッド */
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-.choice.incorrect{
-  background:#fdecea;
-  border-color:var(--danger);
-  color:var(--danger);
+/* ボタンを超大型化 */
+.choice {
+  font-size: 18px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+  min-height: 90px;
 }
 
-.choice.disabled{
-  opacity:0.7;
-  pointer-events:none;
+.choice:hover {
+  transform: scale(1.03);
+}
+
+/* 正解 */
+.choice.correct {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+/* 不正解 */
+.choice.incorrect {
+  background-color: #ffebee;
+  border-color: #f44336;
+}
+
+/* 無効状態 */
+.choice.disabled {
+  opacity: 0.6;
 }
 
 .explanation{
