@@ -33,6 +33,16 @@ body{
   margin:12px;
 }
 
+.correct-bg {
+  background-color: #e3f2fd; /* 薄い青 */
+  transition: background-color 0.3s ease;
+}
+
+.incorrect-bg {
+  background-color: #ffebee; /* 薄い赤 */
+  transition: background-color 0.3s ease;
+}
+
 .genre-buttons button{
   margin-right:8px;
   padding:10px 14px;

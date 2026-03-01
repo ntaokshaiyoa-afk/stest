@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Question } from '../types'
 
 type Props = {
@@ -41,6 +41,7 @@ const renderHighlightedText = (text: string) => {
 const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext, lastResult }) => {
   const [selected, setSelected] = useState<number | null>(null)
   const [answered, setAnswered] = useState(false)
+  const explanationRef = useRef<HTMLDivElement | null>(null)
 
   const handleSelect = (i: number) => {
     if (answered) return
@@ -57,8 +58,25 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext, lastResult }) =
     return 'choice disabled'
   }
 
+  useEffect(() => {
+    if (answered && explanationRef.current) {
+      explanationRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }, [answered])
+
   return (
-    <div className="card quiz-card">
+    <div
+  className={`card quiz-card ${
+    answered
+      ? selected === question.answerIndex
+        ? 'correct-bg'
+        : 'incorrect-bg'
+      : ''
+  }`}
+>
       <div className="question-header">
         <h2>{renderHighlightedText(question.question)}</h2>
       </div>
@@ -78,7 +96,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext, lastResult }) =
       {answered && (
         <div className="explanation">
           <p className="result">{selected === question.answerIndex ? '正解！' : '不正解'}</p>
-          <div className="explain-text">{question.explanation}</div>
+          <div className="explanation" ref={explanationRef}>{question.explanation}</div>
           <div className="next-area">
             <button id="nextbutton" onClick={() => { setSelected(null); setAnswered(false); onNext() }}>次へ</button>
           </div>
