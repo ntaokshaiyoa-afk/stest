@@ -31,13 +31,31 @@ const App: React.FC = () => {
     saveHistory(history)
   }, [history])
 
-  const startQuiz = (genre: Genre, m: typeof mode) => {
-    setSelectedGenre(genre)
-    setMode(m)
-    setIndex(0)
-    setLastResult(null)
-    setScreen('quiz')
+const startQuiz = (genre: Genre, m: typeof mode) => {
+  setSelectedGenre(genre)
+  setMode(m)
+  setIndex(0)
+  setLastResult(null)
+
+  const pool = questionsAll.filter((q) => q.genre === genre)
+
+  const matchesMode = (q: Question) => {
+    const rec = history[q.id]?.results ?? []
+    if (m === 'incorrect-once') {
+      return rec.length > 0 && rec[0] === false
+    }
+    if (m === 'incorrect-twice') {
+      return rec.length >= 2 && rec[0] === false && rec[1] === false
+    }
+    return true
   }
+
+  const filtered =
+    m === 'normal' ? pool : pool.filter(matchesMode)
+
+  setQuestions(shuffle(filtered))   // ←ここで固定
+  setScreen('quiz')
+}
 
   const filteredQuestions = useMemo(() => {
     if (!selectedGenre) return []
