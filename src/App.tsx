@@ -93,10 +93,6 @@ const recordAnswer = (questionId: string, correct: boolean) => {
 
   return (
     <div className="app-root">
-      <header className="app-header">
-        <h1>ビジネス基礎力チェック</h1>
-      </header>
-
       <main className="app-main">
         {screen === 'genre-selection' && (
           <GenreSelection onStart={startQuiz} />
