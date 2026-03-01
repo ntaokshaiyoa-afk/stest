@@ -80,7 +80,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext, lastResult }) =
           <p className="result">{selected === question.answerIndex ? '正解！' : '不正解'}</p>
           <div className="explain-text">{question.explanation}</div>
           <div className="next-area">
-            <button onClick={() => { setSelected(null); setAnswered(false); onNext() }}>次へ</button>
+            <button id="nextbutton" onClick={() => { setSelected(null); setAnswered(false); onNext() }}>次へ</button>
           </div>
         </div>
       )}
