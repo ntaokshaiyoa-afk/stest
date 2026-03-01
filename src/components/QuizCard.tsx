@@ -41,7 +41,15 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   }
 
   return (
-    <div className="card quiz-card">
+   <div
+      className={`card quiz-card ${
+        answered
+          ? selected === question.answerIndex
+            ? 'correct-bg'
+            : 'incorrect-bg'
+          : ''
+      }`}
+    >
       
       {/* 🔥 ここにref追加 */}
       <div className="question-header" ref={questionRef}>
