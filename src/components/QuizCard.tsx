@@ -40,6 +40,33 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
     }, 0)
   }
 
+  const renderHighlightedText = (text: string) => {
+  const patterns = [
+    { keyword: "適切ではないもの", className: "text-red" },
+    { keyword: "不適切なもの", className: "text-red" },
+    { keyword: "適切なもの", className: "text-blue" }
+  ]
+
+  let result: React.ReactNode[] = [text]
+
+  patterns.forEach(({ keyword, className }) => {
+    result = result.flatMap((part) => {
+      if (typeof part !== "string") return [part]
+
+      const split = part.split(keyword)
+      if (split.length === 1) return [part]
+
+      return split.flatMap((s, i) =>
+        i < split.length - 1
+          ? [s, <span key={keyword + i} className={className}>{keyword}</span>]
+          : [s]
+      )
+    })
+  })
+
+  return result
+}
+
   return (
    <div
       className={`card quiz-card ${
@@ -53,7 +80,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
       
       {/* 🔥 ここにref追加 */}
       <div className="question-header" ref={questionRef}>
-        <h2>{question.question}</h2>
+        <h2>{renderHighlightedText(question.question)}</h2>
       </div>
 
       <div className="choices">
