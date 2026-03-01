@@ -120,3 +120,13 @@ button{
   background-color: #4caf50;
   transition: width 0.3s ease;
 }
+
+.text-blue {
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.text-red {
+  color: #d32f2f;
+  font-weight: bold;
+}
