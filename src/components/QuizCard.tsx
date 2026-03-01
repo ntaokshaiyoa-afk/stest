@@ -11,6 +11,8 @@ type Props = {
 const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   const [selected, setSelected] = useState<number | null>(null)
   const [answered, setAnswered] = useState(false)
+
+  const questionRef = useRef<HTMLDivElement | null>(null)
   const explanationRef = useRef<HTMLDivElement | null>(null)
 
   const handleSelect = (i: number) => {
@@ -26,55 +28,36 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
     setSelected(null)
     setAnswered(false)
     onNext()
+
+    // 🔥 次の問題描画後にスクロールさせるため少し遅延
+    setTimeout(() => {
+      if (questionRef.current) {
+        questionRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }, 0)
   }
 
-  // 背景クラスを明確化
-  const cardClass =
-    !answered
-      ? ''
-      : selected === question.answerIndex
-      ? 'card correct-bg'
-      : 'card incorrect-bg'
-
-  useEffect(() => {
-    if (answered && explanationRef.current) {
-      explanationRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  }, [answered])
-
   return (
-    <div className={cardClass}>
-      <div className="question-header">
+    <div className="card quiz-card">
+      
+      {/* 🔥 ここにref追加 */}
+      <div className="question-header" ref={questionRef}>
         <h2>{question.question}</h2>
       </div>
 
       <div className="choices">
-        {question.choices.map((c, i) => {
-          let choiceClass = 'choice'
-
-          if (answered) {
-            if (i === question.answerIndex) {
-              choiceClass += ' correct'
-            } else if (i === selected) {
-              choiceClass += ' incorrect'
-            } else {
-              choiceClass += ' disabled'
-            }
-          }
-
-          return (
-            <button
-              key={i}
-              className={choiceClass}
-              onClick={() => handleSelect(i)}
-            >
-              {c}
-            </button>
-          )
-        })}
+        {question.choices.map((c, i) => (
+          <button
+            key={i}
+            className="choice"
+            onClick={() => handleSelect(i)}
+          >
+            {c}
+          </button>
+        ))}
       </div>
 
       {answered && (
