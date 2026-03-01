@@ -166,3 +166,11 @@ button{
 #nextbutton {
   height: 50px;
 }
+
+.correct-bg {
+  background-color: #e3f2fd !important;
+}
+
+.incorrect-bg {
+  background-color: #ffebee !important;
+}
