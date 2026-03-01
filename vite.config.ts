@@ -12,6 +12,7 @@ export default defineConfig({
         name: 'ビジネス基礎力チェック',
         short_name: 'BizQuiz',
         start_url: '/stest/',
+        scope: '/stest/',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#ffffff',
