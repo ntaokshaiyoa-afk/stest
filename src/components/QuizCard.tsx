@@ -60,7 +60,15 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
         {question.choices.map((c, i) => (
           <button
             key={i}
-            className="choice"
+            className={`choice ${
+            answered
+              ? i === question.answerIndex
+                ? 'correct'
+                : selected === i
+                ? 'incorrect'
+               : 'disabled'
+               : ''
+          }`}
             onClick={() => handleSelect(i)}
           >
             {c}
