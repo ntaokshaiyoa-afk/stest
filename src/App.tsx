@@ -57,30 +57,6 @@ const startQuiz = (genre: Genre, m: typeof mode) => {
   setScreen('quiz')
 }
 
-  const filteredQuestions = useMemo(() => {
-    if (!selectedGenre) return []
-    const pool = questionsAll.filter((q) => q.genre === selectedGenre)
-    if (mode === 'normal') return shuffle(pool)
-
-    // helper to check history for a question
-    const matchesMode = (q: Question) => {
-      const rec = history[q.id]?.results ?? []
-      if (mode === 'incorrect-once') {
-        return rec.length > 0 && rec[0] === false
-      }
-      if (mode === 'incorrect-twice') {
-        return rec.length >= 2 && rec[0] === false && rec[1] === false
-      }
-      return true
-    }
-
-    const filtered = pool.filter(matchesMode)
-    return shuffle(filtered)
-  }, [selectedGenre, mode, history])
-
-  useEffect(() => {
-    setQuestions(filteredQuestions)
-  }, [filteredQuestions])
 
   const recordAnswer = (questionId: string, correct: boolean) => {
     setLastResult(correct)
