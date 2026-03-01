@@ -26,6 +26,7 @@ const App: React.FC = () => {
   const [index, setIndex] = useState<number>(0)
   const [history, setHistory] = useState<AnswerHistory>(() => loadHistory())
   const [lastResult, setLastResult] = useState<boolean | null>(null)
+  const [correctCount, setCorrectCount] = useState<number>(0)
 
   useEffect(() => {
     saveHistory(history)
@@ -36,6 +37,7 @@ const startQuiz = (genre: Genre, m: typeof mode) => {
   setMode(m)
   setIndex(0)
   setLastResult(null)
+  setCorrectCount(0)
 
   const pool = questionsAll.filter((q) => q.genre === genre)
 
@@ -58,14 +60,19 @@ const startQuiz = (genre: Genre, m: typeof mode) => {
 }
 
 
-  const recordAnswer = (questionId: string, correct: boolean) => {
-    setLastResult(correct)
-    setHistory((prev) => {
-      const prevResults = prev[questionId]?.results ?? []
-      const newResults = [correct, ...prevResults].slice(0, 2)
-      return { ...prev, [questionId]: { results: newResults } }
-    })
+const recordAnswer = (questionId: string, correct: boolean) => {
+  setLastResult(correct)
+
+  if (correct) {
+    setCorrectCount((c) => c + 1)
   }
+
+  setHistory((prev) => {
+    const prevResults = prev[questionId]?.results ?? []
+    const newResults = [correct, ...prevResults].slice(0, 2)
+    return { ...prev, [questionId]: { results: newResults } }
+  })
+}
 
   const handleNext = () => {
     if (index + 1 < questions.length) {
@@ -95,27 +102,57 @@ const startQuiz = (genre: Genre, m: typeof mode) => {
           <GenreSelection onStart={startQuiz} />
         )}
 
-        {screen === 'quiz' && (
-          <>
-            {questions.length === 0 ? (
-              <div className="card">
-                <p>該当する問題がありません。</p>
-                <button onClick={handleRestart}>最初へ戻る</button>
-              </div>
-            ) : (
-              <QuizCard
-                question={questions[index]}
-                onAnswer={(correct) => recordAnswer(questions[index].id, correct)}
-                onNext={handleNext}
-                lastResult={lastResult}
-              />
-            )}
-          </>
-        )}
+{screen === 'quiz' && (
+  <>
+    {questions.length === 0 ? (
+      <div className="card">
+        <p>該当する問題がありません。</p>
+        <button onClick={handleRestart}>最初へ戻る</button>
+      </div>
+    ) : (
+      <>
+        <div className="progress-wrapper">
+          <div className="progress-info">
+            <span>
+              {index + 1} / {questions.length}
+            </span>
+            <span>
+              正答率:{" "}
+              {index === 0
+                ? "0%"
+                : Math.round((correctCount / index) * 100) + "%"}
+            </span>
+          </div>
+          <div className="progress-bar">
+            <div
+              className="progress-fill"
+              style={{
+                width: `${((index + 1) / questions.length) * 100}%`
+              }}
+            />
+          </div>
+        </div>
+
+        <QuizCard
+          question={questions[index]}
+          onAnswer={(correct) =>
+            recordAnswer(questions[index].id, correct)
+          }
+          onNext={handleNext}
+          lastResult={lastResult}
+        />
+      </>
+    )}
+  </>
+)}
 
         {screen === 'completion' && (
-          <Completion onRestart={handleRestart} />
-        )}
+  <Completion
+    onRestart={handleRestart}
+    total={questions.length}
+    correct={correctCount}
+  />
+)}
       </main>
     </div>
   )
