@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { Question } from '../types'
 
 type Props = {
@@ -16,14 +16,12 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   const explanationRef = useRef<HTMLDivElement | null>(null)
   const nextRef = useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
   if (answered && nextRef.current) {
-    setTimeout(() => {
-      nextRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      })
-    }, 100)
+    window.scrollTo({
+      top: nextRef.current.offsetTop - 20,
+      behavior: 'smooth'
+    })
   }
 }, [answered])
 
