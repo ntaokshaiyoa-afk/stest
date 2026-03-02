@@ -168,3 +168,19 @@ button{
   height: 50px;
 }
 
+/* 正解アニメーション */
+@keyframes correctPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.correct-animate {
+  animation: correctPop 0.35s ease;
+}
