@@ -89,7 +89,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
       className={`card quiz-card ${
         answered
           ? selected === question.answerIndex
-            ? 'correct-bg'
+            ? 'correct-bg correct-animate'
             : 'incorrect-bg'
           : ''
       }`}
