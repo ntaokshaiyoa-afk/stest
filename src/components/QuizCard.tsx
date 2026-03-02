@@ -127,12 +127,12 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
           <div ref={explanationRef}>
             {question.explanation}
           </div>
-
-          <div className="next-area" ref={nextRef}>
-            <button class="next-button" onClick={handleNext}>
-              次へ
-            </button>
-          </div>
+        </div>
+      　　
+        <div className="fixed-next-area" ref={nextRef}>
+          <button className="next-button" onClick={handleNext}>
+            次へ
+          </button>
         </div>
       )}
     </div>
