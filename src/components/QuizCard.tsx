@@ -14,6 +14,18 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
 
   const questionRef = useRef<HTMLDivElement | null>(null)
   const explanationRef = useRef<HTMLDivElement | null>(null)
+  const nextRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+  if (answered && nextRef.current) {
+    setTimeout(() => {
+      nextRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
+    }, 100)
+  }
+}, [answered])
 
   const handleSelect = (i: number) => {
     if (answered) return
@@ -118,8 +130,8 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
             {question.explanation}
           </div>
 
-          <div className="next-area">
-            <button onClick={handleNext}>
+          <div className="next-area" ref={nextRef}>
+            <button class="next-button" onClick={handleNext}>
               次へ
             </button>
           </div>
