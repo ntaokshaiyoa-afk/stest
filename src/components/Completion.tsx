@@ -2,11 +2,15 @@ import React from 'react'
 
 interface Props {
   onRestart: () => void
-  total: number
-  correct: number
+  total?: number
+  correct?: number
 }
 
-const Completion: React.FC<Props> = ({ onRestart, total, correct }) => {
+const Completion: React.FC<Props> = ({
+  onRestart,
+  total = 0,
+  correct = 0
+}) => {
   const percentage =
     total > 0 ? Math.round((correct / total) * 100) : 0
 
