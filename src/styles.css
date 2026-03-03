@@ -136,10 +136,16 @@ body{
   background: white;
   
   padding: 16px;
-  padding-bottom: calc(16px + env(safe-area-inset-bottom)); /* iPhone下部対応 */
+  padding-bottom: max(16px + env(safe-area-inset-bottom)); /* iPhone下部対応 */
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   z-index: 1000;
   box-sizing: border-box;
+}
+
+.fixed-next-area:after {
+  content: "";
+  display: block;
+  height: env(safe-area-inset-bottom;
 }
 
 .next-button {
@@ -151,10 +157,6 @@ body{
   background-color: #4caf50;
   color: white;
   border-radius: 8px;
-}
-
-.fixed-next-area {
-  padding-bottom: calc(12px + env(safe-area-inset-bottom));
 }
 
 button{
