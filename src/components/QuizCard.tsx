@@ -130,7 +130,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
         </div>
       )}
       {answered && (
-        <div className="fixed-next-area" ref={nextRef}>
+        <div className={`fixed-next-area ${answered ? 'show' : ''}`} ref={nextRef}>
           <button className="next-button" onClick={handleNext}>
             次へ
           </button>
