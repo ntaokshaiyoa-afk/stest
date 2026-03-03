@@ -208,7 +208,7 @@ const questions: Question[] = [
       "Y理論は人間の内発的動機づけを重視する"
     ],
     answerIndex: 2,
-    explanation: "統合の原則や自己統制はY理論の立場である。X理論は外的統制を前提とする管理観である。"
+    explanation: "統合の原則や自己統制はY理論の立場である。X理論は外的統制(命令)を前提とする管理観である。X ＝ eXternal（外的統制）、　　Y ＝ Your control（自己統制）と覚える。"
   },
   {
     id: "management-17",
