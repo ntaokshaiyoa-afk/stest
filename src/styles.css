@@ -136,16 +136,17 @@ body{
   background: white;
   
   padding: 16px;
-  padding-bottom: max(16px + env(safe-area-inset-bottom)); /* iPhone下部対応 */
+  padding-bottom: max(16px, env(safe-area-inset-bottom)); /* ← 修正 */
+  
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   z-index: 1000;
   box-sizing: border-box;
 }
 
-.fixed-next-area:after {
+.fixed-next-area::after {
   content: "";
   display: block;
-  height: env(safe-area-inset-bottom;
+  height: env(safe-area-inset-bottom); /* ← )追加 */
 }
 
 .next-button {
