@@ -90,6 +90,12 @@ const recordAnswer = (questionId: string, correct: boolean) => {
     setIndex(0)
     setLastResult(null)
   }
+    
+  const answeredCount = lastResult === null ? index : index + 1
+  const accuracy =
+    answeredCount === 0
+      ? 0
+      : Math.round((correctCount / answeredCount) * 100)
 
   return (
     <div className="app-root">
@@ -112,18 +118,13 @@ const recordAnswer = (questionId: string, correct: boolean) => {
             <span>
               {index + 1} / {questions.length}
             </span>
-            <span>
-              正答率:{" "}
-              {index === 0
-                ? "0%"
-                : Math.round((correctCount / index) * 100) + "%"}
-            </span>
+            <span>正答率: {accuracy}%</span>
           </div>
           <div className="progress-bar">
             <div
               className="progress-fill"
               style={{
-                width: `${((index + 1) / questions.length) * 100}%`
+                width: `${(answeredCount / questions.length) * 100}%`
               }}
             />
           </div>
