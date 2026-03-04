@@ -82,6 +82,19 @@ const questions: Question[] = [
   {
     id: "management-7",
     genre: "management",
+    question: "現代の米国のマネジメントプロセスの要素として正しいものはどれかか？",
+    choices: [
+      "M&Aやリストラ、ダウンサイジングで組織の変革を起こす",
+      "仕事の流れを決めて、不具合を潰し込むことで誰でも高い成果を出せるようにする",
+      "権力を集中させて、効率的に指示ができるようにする",
+      "雇用を安定させることで、従業員が安心して業務に取り組めるようにする"
+    ],
+    answerIndex: 0,
+    explanation: "M&A(合併と買収)や、リストラ(人を減らす)、ダウンサイジング(組織のスリム化)により組織を変革させる。他には、仕事の流れを根本から見直すリエンジニアリングや、トップダウンを改めて一般従業員にもっと権限を与えるエンパワーメントがある。"
+  },
+  {
+    id: "management-8",
+    genre: "management",
     question: "ファヨールの管理過程に含まれる要素の正しい順序はどれか？",
     choices: [
       "予測→組織化→命令→調整→統制",
@@ -93,7 +106,7 @@ const questions: Question[] = [
     explanation: "ファヨールは管理機能を予測（計画）から統制まで体系化。計画→組織→命令→調整→統制が基本。"
   },
   {
-    id: "management-8",
+    id: "management-9",
     genre: "management",
     question: "フィードラーの状況適合理論に関する記述として誤っているものはどれか？",
     choices: [
@@ -106,33 +119,33 @@ const questions: Question[] = [
     explanation: "フィードラー理論は状況適合を重視し万能型を否定。スタイルは固定的と仮定する点が特徴。LPCは最も好ましくない同僚をどのように評価するかによって、リーダーの関係志向性(高LPC)または課題志向性(低LPC)を測定する尺度である。"
   },
   {
-    id: "management-9",
+    id: "management-10",
     genre: "management",
     question: "ハーシー＝ブランチャードのSL理論（状況対応リーダーシップ理論）で成熟度が最も高い場合の適切なスタイルはどれか？",
     choices: [
       "教示型",
       "説得型",
-      "参加型",
-      "委任型"
+      "参加的",
+      "自由奔放"
     ],
     answerIndex: 3,
-    explanation: "成熟度が最も高い場合は委任型。参加型は中程度成熟度に適合。成熟度とスタイルの対応は頻出。"
+    explanation: "成熟度が最も高い場合は自由奔放。参加的は中程度成熟度に適合。成熟度とスタイルの対応は頻出。"
   },
   {
-    id: "management-10",
+    id: "management-11",
     genre: "management",
     question: "ミンツバーグの管理者行動研究の結果として不適切なものはどれか？",
     choices: [
       "管理者の活動は短時間で断片的に行われる傾向がある",
       "公式文書よりも口頭コミュニケーションに多くの時間を費やす",
-      "管理者は主として組織内部の公式ルートのみで活動する",
+      "管理者は主として組織の枠にとらわれない活動には慎重である",
       "対人関係・情報伝達・意思決定という役割を担う"
     ],
     answerIndex: 2,
     explanation: "ミンツバーグは管理者が組織外部を含め幅広いネットワークを活用することを示した。公式ルートのみに限定されるという見方は実証研究と反する。"
   },
   {
-    id: "management-11",
+    id: "management-12",
     genre: "management",
     question: "コッターの管理者行動研究の結果として不適切なものはどれか？",
     choices: [
@@ -145,7 +158,7 @@ const questions: Question[] = [
     explanation: "コッターは情報が必ずしも確実ではないことを指摘した。管理者は不完全な情報の中で意思決定を行う。"
   },
   {
-    id: "management-12",
+    id: "management-13",
     genre: "management",
     question: "ホールが示した組織構造の三次元に含まれないものはどれか？",
     choices: [
@@ -158,7 +171,20 @@ const questions: Question[] = [
     explanation: "ホールは集権化・公式化・複雑性を三次元とした。資本収益率は経営成果指標であり構造次元ではない。"
   },
   {
-    id: "management-13",
+    id: "management-14",
+    genre: "management",
+    question: "機械的組織と有機的組織に関する説明として不適切なものはどれか？",
+    choices: [
+      "機械的組織は職位が権限に対応している",
+      "機械的組織はピラミッド構造で命令伝達が行われる",
+      "有機的組織は主に上下関係のつながりで情報が得られる",
+      "有機的組織は技術や知識を重視している"
+    ],
+    answerIndex: 2,
+    explanation: "有機的組織は専門知識に基づく権限と、ネットワーク型の情報伝達、知識や技術を重視することが特徴。機械的組織は中央集権型で権限は職位に紐づいており、ピラミッド型な情報伝達が行われ、組織構造が重視される。"
+  }, 
+  {
+    id: "management-15",
     genre: "management",
     question: "ローレンス＝ローシュの分化と統合に関する説明として不適切なものはどれか？",
     choices: [
@@ -171,86 +197,7 @@ const questions: Question[] = [
     explanation: "彼らは環境の不確実性が分化を促すとした。分化が進むほど統合の必要性が高まるという点が理論の核心である。"
   },
   {
-    id: "management-14",
-    genre: "management",
-    question: "事業部制組織の特徴として不適切なものはどれか？",
-    choices: [
-      "事業単位ごとに利益責任が明確になる",
-      "市場や製品別の環境変化に対応しやすい",
-      "本社が全業務を詳細に統制するため迅速性に欠ける",
-      "各事業部が独立採算的に運営される"
-    ],
-    answerIndex: 2,
-    explanation: "事業部制は権限委譲により迅速な意思決定を可能にする。本社による過度な集中統制は職能別組織に近い。"
-  },
-
-  {
-    id: "management-15",
-    genre: "management",
-    question: "マズローの欲求階層説における正しい順序はどれか？",
-    choices: [
-      "生理→安全→所属→尊重→自己実現",
-      "安全→生理→尊重→所属→自己実現",
-      "生理→所属→安全→尊重→自己実現",
-      "所属→安全→生理→尊重→自己実現"
-    ],
-    answerIndex: 0,
-    explanation: "下位から生理的欲求、安全欲求、所属欲求、尊重欲求、自己実現欲求。順序入替問題は典型的な出題形式。"
-  },
-  {
     id: "management-16",
-    genre: "management",
-    question: "マグレガーのX理論・Y理論に関する記述として不適切なものはどれか？",
-    choices: [
-      "X理論は人間を本来的に怠惰とみなし統制を重視する",
-      "Y理論は自己統制・自己実現の可能性を前提とする",
-      "X理論は統合の原則と自己統制を基礎としている",
-      "Y理論は人間の内発的動機づけを重視する"
-    ],
-    answerIndex: 2,
-    explanation: "統合の原則や自己統制はY理論の立場である。X理論は外的統制(命令)を前提とする管理観である。X ＝ eXternal（外的統制）、　　Y ＝ Your control（自己統制）と覚える。"
-  },
-  {
-    id: "management-17",
-    genre: "management",
-    question: "ハーズバーグの二要因理論で衛生要因に分類されるものはどれか？",
-    choices: [
-      "達成",
-      "承認",
-      "仕事そのもの",
-      "給与"
-    ],
-    answerIndex: 3,
-    explanation: "給与は不満を防ぐ衛生要因。達成・承認・仕事そのものは動機付け要因（Motivator）。"
-  },
-  {
-    id: "management-18",
-    genre: "management",
-    question: "変革志向型リーダーシップ行動として不適切なものはどれか？",
-    choices: [
-      "魅力的な将来ビジョンを提示する",
-      "既存の枠組みに挑戦し革新を促す",
-      "高い期待水準を示し成員を鼓舞する",
-      "既定資源の効率的配分に専念する"
-    ],
-    answerIndex: 3,
-    explanation: "資源の効率的配分は管理志向的行動。変革型は価値観やビジョンを通じ組織変革を促す点に特徴がある。"
-  },
-  {
-    id: "management-19",
-    genre: "management",
-    question: "機械的組織の特徴として適切なものはどれか？",
-    choices: [
-      "分権化と低公式化",
-      "高公式化と高集権化",
-      "水平的コミュニケーション重視",
-      "環境変化への高い柔軟性"
-    ],
-    answerIndex: 1,
-    explanation: "機械的組織は公式化・集権化が高い。有機的組織との対比が重要。"
-  },
-  {
-    id: "management-20",
     genre: "management",
     question: "職能別組織の特徴として不適切なものはどれか？",
     choices: [
@@ -262,8 +209,21 @@ const questions: Question[] = [
     answerIndex: 3,
     explanation: "独立採算的な利益責任が明確なのは事業部制組織の特徴。職能別組織では全社的利益責任が中心となる。"
   },
+   {
+    id: "management-17",
+    genre: "management",
+    question: "事業部制組織の特徴として不適切なものはどれか？",
+    choices: [
+      "事業単位ごとに利益責任が明確になる",
+      "市場や製品別の環境変化に対応しやすい",
+      "本社が全業務を詳細に統制するため迅速性に欠ける",
+      "各事業部が独立採算的に運営される"
+    ],
+    answerIndex: 2,
+    explanation: "事業部制は権限委譲により迅速な意思決定を可能にする。本社による過度な集中統制は職能別組織に近い。"
+  },
   {
-    id: "management-21",
+    id: "management-18",
     genre: "management",
     question: "プロジェクトチームに関する記述として不適切なものはどれか？",
     choices: [
@@ -276,7 +236,7 @@ const questions: Question[] = [
     explanation: "異種混成で期間限定であるため、役割明確化と関係調整は極めて重要である。"
   },
   {
-    id: "management-22",
+    id: "management-19",
     genre: "management",
     question: "社内ベンチャーに関する説明として不適切なものはどれか？",
     choices: [
@@ -289,7 +249,7 @@ const questions: Question[] = [
     explanation: "完全独立はスピンオフや分社化に近い。社内ベンチャーは組織内部での起業活動を指す。"
   },
   {
-    id: "management-23",
+    id: "management-20",
     genre: "management",
     question: "戦略的提携のメリットとして不適切なものはどれか？",
     choices: [
@@ -302,72 +262,46 @@ const questions: Question[] = [
     explanation: "戦略的提携はリスク低減効果はあるが、投資回収を保証するものではない。"
   },
   {
+    id: "management-21",
+    genre: "management",
+    question: "マズローの欲求階層説における正しい順序はどれか？",
+    choices: [
+      "生理→安全→所属→尊重→自己実現",
+      "安全→生理→尊重→所属→自己実現",
+      "生理→所属→安全→尊重→自己実現",
+      "所属→安全→生理→尊重→自己実現"
+    ],
+    answerIndex: 0,
+    explanation: "下位から生理的欲求、安全欲求、所属欲求、尊重欲求、自己実現欲求。順序入替問題は典型的な出題形式。"
+  },
+  {
+    id: "management-22",
+    genre: "management",
+    question: "マグレガーのX理論・Y理論に関する記述として不適切なものはどれか？",
+    choices: [
+      "X理論は人間を本来的に怠惰とみなし統制を重視する",
+      "Y理論は自己統制・自己実現の可能性を前提とする",
+      "X理論は統合の原則と自己統制を基礎としている",
+      "Y理論は人間の内発的動機づけを重視する"
+    ],
+    answerIndex: 2,
+    explanation: "統合の原則や自己統制はY理論の立場である。X理論は外的統制(命令)を前提とする管理観である。X ＝ eXternal（外的統制）、　　Y ＝ Your control（自己統制）と覚える。"
+  },
+  {
+    id: "management-23",
+    genre: "management",
+    question: "ハーズバーグの二要因理論で衛生要因に分類されるものはどれか？",
+    choices: [
+      "達成",
+      "承認",
+      "仕事そのもの",
+      "給与"
+    ],
+    answerIndex: 3,
+    explanation: "給与は不満を防ぐ衛生要因。達成・承認・仕事そのものは動機付け要因（Motivator）。"
+  },
+   {
     id: "management-24",
-    genre: "management",
-    question: "目標による管理（MBO）の本質として最も適切なものはどれか？",
-    choices: [
-      "上司によるノルマ管理制度",
-      "合意に基づく目標設定と自己統制の仕組み",
-      "短期利益最大化の徹底",
-      "評価と処罰を目的とする制度"
-    ],
-    answerIndex: 1,
-    explanation: "MBOは上司と部下の合意による目標設定と自己統制を重視する。単なるノルマ管理ではない。"
-  },
-  {
-    id: "management-25",
-    genre: "management",
-    question: "目標による管理（MBO）の評価段階として不適切なものはどれか？",
-    choices: [
-      "設定目標と実績の照合",
-      "上司と部下の話し合いによる評価",
-      "評価結果の次期目標への反映",
-      "上司が非公開情報のみで一方的に評価を決定する"
-    ],
-    answerIndex: 3,
-    explanation: "MBOは双方向的プロセスを重視する。一方的評価は理念に反する。"
-  },
-  {
-    id: "management-26",
-    genre: "management",
-    question: "組織文化に関する記述として不適切なものはどれか？",
-    choices: [
-      "共有された価値観・信念体系である",
-      "成員の行動様式に影響を与える",
-      "長期的に形成・維持される傾向がある",
-      "短期的な業績変動によって直ちに完全に変化する"
-    ],
-    answerIndex: 3,
-    explanation: "組織文化は歴史的蓄積により形成され、短期的業績変動で急変するものではない。"
-  },
-  {
-    id: "management-27",
-    genre: "management",
-    question: "現代米国型マネジメントの特徴として不適切なものはどれか？",
-    choices: [
-      "成果主義的傾向が強い",
-      "株主価値最大化を重視する",
-      "短期業績を重視する傾向がある",
-      "終身雇用を前提とする雇用慣行が一般的である"
-    ],
-    answerIndex: 3,
-    explanation: "終身雇用は日本型経営の特徴。米国型は雇用流動性が高い。"
-  },
-  {
-    id: "management-28",
-    genre: "management",
-    question: "フィードラー理論の状況要因に含まれないものはどれか？",
-    choices: [
-      "リーダーと成員の関係",
-      "課題構造の明確さ",
-      "地位権力の強さ",
-      "組織文化の共有度"
-    ],
-    answerIndex: 3,
-    explanation: "フィードラーは3要因（関係・課題構造・地位権力）を提示。組織文化は含まれない。"
-  },
-  {
-    id: "management-29",
     genre: "management",
     question: "職務再設計の内容として適切なものはどれか？",
     choices: [
@@ -380,7 +314,20 @@ const questions: Question[] = [
     explanation: "職務拡大（Job Enlargement）と職務充実（Job Enrichment）が中心概念。内発的動機づけ向上が狙い。"
   },
   {
-    id: "management-30",
+    id: "management-25",
+    genre: "management",
+    question: "目標による管理（MBO）の本質として最も適切なものはどれか？",
+    choices: [
+      "上司によるノルマ管理制度",
+      "合意に基づく目標設定と自己統制の仕組み",
+      "短期利益最大化の徹底",
+      "評価と処罰を目的とする制度"
+    ],
+    answerIndex: 1,
+    explanation: "MBOは上司と部下の合意による目標設定と自己統制を重視する。単なるノルマ管理ではない。"
+  },
+  {
+    id: "management-26",
     genre: "management",
     question: "目標管理の実践的原則として適切なものはどれか？",
     choices: [
@@ -391,6 +338,58 @@ const questions: Question[] = [
     ],
     answerIndex: 2,
     explanation: "MBOでは合意形成と測定可能性（具体性）が重要。環境変化に応じ修正もあり得る。"
+  },
+  {
+    id: "management-27",
+    genre: "management",
+    question: "目標による管理（MBO）の評価段階として不適切なものはどれか？",
+    choices: [
+      "設定目標と実績の照合",
+      "上司と部下の話し合いによる評価",
+      "評価結果の次期目標への反映",
+      "上司が非公開情報のみで一方的に評価を決定する"
+    ],
+    answerIndex: 3,
+    explanation: "MBOは双方向的プロセスを重視する。一方的評価は理念に反する。"
+  },
+  {
+    id: "management-28",
+    genre: "management",
+    question: "組織文化に関する記述として不適切なものはどれか？",
+    choices: [
+      "共有された価値観・信念体系である",
+      "成員の行動様式に影響を与える",
+      "長期的に形成・維持される傾向がある",
+      "短期的な業績変動によって直ちに完全に変化する"
+    ],
+    answerIndex: 3,
+    explanation: "組織文化は歴史的蓄積により形成され、短期的業績変動で急変するものではない。"
+  },
+   {
+    id: "management-29",
+    genre: "management",
+    question: "変革志向型リーダーシップ行動として不適切なものはどれか？",
+    choices: [
+      "魅力的な将来ビジョンを提示する",
+      "既存の枠組みに挑戦し革新を促す",
+      "高い期待水準を示し成員を鼓舞する",
+      "既定資源の効率的配分に専念する"
+    ],
+    answerIndex: 3,
+    explanation: "資源の効率的配分は管理志向的行動。変革型は価値観やビジョンを通じ組織変革を促す点に特徴がある。"
+  },
+   {
+    id: "management-30",
+    genre: "management",
+    question: "フィードラー理論の状況要因に含まれないものはどれか？",
+    choices: [
+      "リーダーと成員の関係",
+      "課題構造の明確さ",
+      "地位権力の強さ",
+      "組織文化の共有度"
+    ],
+    answerIndex: 3,
+    explanation: "フィードラーは3要因（関係・課題構造・地位権力）を提示。組織文化は含まれない。"
   },
   {
     id: "hr-1",
