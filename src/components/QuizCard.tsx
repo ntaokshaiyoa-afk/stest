@@ -54,10 +54,13 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   const patterns = [
     { keyword: "適切ではない", className: "text-red" },
     { keyword: "不適切な", className: "text-red" },
-    { keyword: "含まれない", className: "text-red" },
     { keyword: "適切な", className: "text-blue" },
+    { keyword: "誤り", className: "text-red" },
     { keyword: "正しい", className: "text-blue" },
-    { keyword: "含まれる", className: "text-blue" }
+    { keyword: "含まれない", className: "text-red" },
+    { keyword: "含まれる", className: "text-blue" },
+    { keyword: "分類されない", className: "text-red" },
+    { keyword: "分類される", className: "text-blue" }
   ]
 
   let result: React.ReactNode[] = [text]
