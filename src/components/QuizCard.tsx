@@ -8,6 +8,23 @@ type Props = {
   lastResult: boolean | null
 }
 
+const shuffleChoices = (choices: string[], answerIndex: number) => {
+  const arr = choices.map((c, i) => ({
+    text: c,
+    correct: i === answerIndex
+  }))
+
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+
+  return {
+    choices: arr.map((a) => a.text),
+    answerIndex: arr.findIndex((a) => a.correct)
+  }
+}
+
 const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   const [selected, setSelected] = useState<number | null>(null)
   const [answered, setAnswered] = useState(false)
@@ -16,19 +33,32 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
   const explanationRef = useRef<HTMLDivElement | null>(null)
   const nextRef = useRef<HTMLDivElement | null>(null)
 
+  
+  const [shuffledChoices, setShuffledChoices] = useState<string[]>([])
+  const [shuffledAnswerIndex, setShuffledAnswerIndex] = useState<number>(0)
+
+  useEffect(() => {
+    const shuffled = shuffleChoices(question.choices, question.answerIndex)
+    setShuffledChoices(shuffled.choices)
+    setShuffledAnswerIndex(shuffled.answerIndex)
+  
+    setSelected(null)
+    setAnswered(false)
+  }, [question])
+  
   useLayoutEffect(() => {
-  if (answered && nextRef.current) {
-    window.scrollTo({
-      top: nextRef.current.offsetTop - 20,
-      behavior: 'smooth'
-    })
-  }
-}, [answered])
+    if (answered && nextRef.current) {
+      window.scrollTo({
+        top: nextRef.current.offsetTop - 20,
+        behavior: 'smooth'
+      })
+    }
+  }, [answered])
 
   const handleSelect = (i: number) => {
     if (answered) return
-
-    const correct = i === question.answerIndex
+    
+    const correct = i === shuffledAnswerIndex
     setSelected(i)
     setAnswered(true)
     onAnswer(correct)
@@ -102,12 +132,12 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
       </div>
 
       <div className="choices">
-        {question.choices.map((c, i) => (
+        {shuffledChoices.map((c, i) => (
           <button
             key={i}
             className={`choice ${
             answered
-              ? i === question.answerIndex
+              ? i === shuffledAnswerIndex
                 ? 'correct'
                 : selected === i
                 ? 'incorrect'
