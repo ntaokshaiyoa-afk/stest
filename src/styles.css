@@ -257,6 +257,7 @@ button{
   --size: 44px;
   --thickness: 6px;
   --percent: 0;
+  --color: #4caf50;
 
   width: var(--size);
   height: var(--size);
@@ -269,24 +270,35 @@ button{
   font-size: 12px;
   font-weight: bold;
 
-  color: #333;
-
-  background:
-  conic-gradient(
-    var(--color) calc(var(--percent) * 1%),
-    #e0e0e0 0
-  );
-
   position: relative;
 }
 
-/* 中央をくり抜いてリングにする */
+/* リング */
+.accuracy-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  background: conic-gradient(
+    var(--color) calc(var(--percent) * 1%),
+    #e0e0e0 0
+  );
+}
+
+/* 中央の穴 */
 .accuracy-circle::after {
   content: "";
   position: absolute;
   inset: var(--thickness);
   background: white;
   border-radius: 50%;
+}
+
+/* テキストを前面に */
+.accuracy-circle span,
+.accuracy-circle {
+  z-index: 1;
 }
 
 /* 正解アニメーション */
