@@ -151,6 +151,17 @@ const recordAnswer = (questionId: string, correct: boolean) => {
   />
 )}
       </main>
+      <div className="bottom-progress">
+  <div
+    className="bottom-progress-fill"
+    style={{
+      width:
+        questions.length === 0
+          ? "0%"
+          : `${((index + (lastResult !== null ? 1 : 0)) / questions.length) * 100}%`
+    }}
+  />
+</div>
     </div>
   )
 }
