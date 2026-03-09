@@ -91,7 +91,10 @@ const App: React.FC = () => {
                   {index + 1} / {questions.length}
                 </span>
 
-                <div className="accuracy-circle">
+                <div
+                  className="accuracy-circle"
+                  style={{ "--percent": accuracy } as React.CSSProperties}
+                >
                   {accuracy}%
                 </div>
               </div>
