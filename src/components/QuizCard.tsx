@@ -119,7 +119,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
    <div
       className={`card quiz-card ${
         answered
-          ? selected === question.answerIndex
+          ? selected === shuffledAnswerIndex
             ? 'correct-bg correct-animate'
             : 'incorrect-bg'
           : ''
@@ -140,10 +140,10 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
               ? i === shuffledAnswerIndex
                 ? 'correct'
                 : selected === i
-                ? 'incorrect'
-               : 'disabled'
-               : ''
-          }`}
+                  ? 'incorrect'
+                  : 'disabled'
+              : ''
+            }`}
             onClick={() => handleSelect(i)}
           >
             {c}
@@ -154,7 +154,7 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
       {answered && (
         <div className="explanation-area">
           <p className="result">
-            {selected === question.answerIndex ? '正解！' : '不正解'}
+            {selected === shuffledAnswerIndex ? '正解！' : '不正解'}
           </p>
 
           <div ref={explanationRef}>
