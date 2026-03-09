@@ -59,6 +59,10 @@ const QuizCard: React.FC<Props> = ({ question, onAnswer, onNext }) => {
     if (answered) return
     
     const correct = i === shuffledAnswerIndex
+    if (correct && navigator.vibrate) {
+      navigator.vibrate(30)
+    }
+
     setSelected(i)
     setAnswered(true)
     onAnswer(correct)
