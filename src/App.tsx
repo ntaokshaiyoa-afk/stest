@@ -75,6 +75,13 @@ const App: React.FC = () => {
       ? 0
       : Math.round((correctCount / answerHistory.length) * 100)
 
+  const color =
+  accuracy > 80
+    ? "#4caf50"
+    : accuracy > 60
+    ? "#ff9800"
+    : "#f44336"
+    
   return (
     <div className="app-root">
       <main className="app-main">
@@ -93,7 +100,7 @@ const App: React.FC = () => {
 
                 <div
                   className="accuracy-circle"
-                  style={{ "--percent": accuracy } as React.CSSProperties}
+                  style={{ "--percent": accuracy, "--color": color } as React.CSSProperties}
                 >
                   {accuracy}%
                 </div>
