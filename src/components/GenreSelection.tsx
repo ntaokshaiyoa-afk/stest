@@ -13,9 +13,9 @@ const GenreSelection: React.FC<Props> = ({ onStart }) => {
     <div className="card">
       <h2>ジャンルを選択</h2>
       <div className="genre-buttons">
-        <button className={genre === 'management' ? 'active' : ''} onClick={() => setGenre('management')}>マネジメント</button>
-        <button className={genre === 'hr' ? 'active' : ''} onClick={() => setGenre('hr')}>人事 / 労務</button>
-        <button className={genre === 'finance' ? 'active' : ''} onClick={() => setGenre('finance')}>財務</button>
+        <button className={genre === 'ml' ? 'active' : ''} onClick={() => setGenre('ml')}>機械学習・深層学習の基礎</button>
+        <button className={genre === 'dl' ? 'active' : ''} onClick={() => setGenre('dl')}>ニューラルネットワーク／深層学習アーキテクチャと学習手法</button>
+        <button className={genre === 'soc' ? 'active' : ''} onClick={() => setGenre('soc')}>AIの社会実装・法律・倫理</button>
       </div>
 
       <h3>出題モード</h3>
