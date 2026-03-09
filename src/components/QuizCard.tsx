@@ -11,7 +11,7 @@ type Props = {
 const shuffleChoices = (choices: string[], answerIndex: number) => {
   const arr = choices.map((c, i) => ({
     text: c,
-    correct: i === shuffledAnswerIndex
+    correct: i === answerIndex
   }))
 
   for (let i = arr.length - 1; i > 0; i--) {
